@@ -1,0 +1,24 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+const entries = (await getCollection('articles')).filter(e => !e.data.draft)
+  .sort((a,b) => {
+    const da = a.data.pubDate || a.data.lastUpdated || new Date(0);
+    const db = b.data.pubDate || b.data.lastUpdated || new Date(0);
+    return new Date(db).getTime() - new Date(da).getTime();
+  });
+---
+<Layout title="Articles" description="Browse all articles">
+  <section class="mx-auto max-w-3xl px-4 py-8">
+    <h1 class="text-3xl font-bold mb-8">Articles</h1>
+    <ul class="space-y-6">
+      {entries.map(e => {
+        const slug = e.id.replace(/\.md$/, '');
+        return (<li>
+          <a href={`/articles/${slug}/`} class="text-xl font-semibold hover:underline">{e.data.title}</a>
+          {e.data.description && <p class="text-gray-600 mt-1">{e.data.description}</p>}
+        </li>);
+      })}
+    </ul>
+  </section>
+</Layout>

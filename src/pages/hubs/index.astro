@@ -1,0 +1,24 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+const entries = (await getCollection('hubs')).filter(e => !e.data.draft)
+  .sort((a,b) => {
+    const da = a.data.lastUpdated || new Date(0);
+    const db = b.data.lastUpdated || new Date(0);
+    return new Date(db).getTime() - new Date(da).getTime();
+  });
+---
+<Layout title="Hubs" description="Browse all hubs">
+  <section class="mx-auto max-w-3xl px-4 py-8">
+    <h1 class="text-3xl font-bold mb-8">Hubs</h1>
+    <ul class="space-y-6">
+      {entries.map(e => {
+        const slug = e.id.replace(/\.md$/, '');
+        return (<li>
+          <a href={`/hubs/${slug}/`} class="text-xl font-semibold hover:underline">{e.data.title}</a>
+          {e.data.description && <p class="text-gray-600 mt-1">{e.data.description}</p>}
+        </li>);
+      })}
+    </ul>
+  </section>
+</Layout>

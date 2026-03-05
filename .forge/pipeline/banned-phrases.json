@@ -1,0 +1,31 @@
+{
+  "version": "1.0",
+  "phrases": [
+    {"pattern": "it(?:'s|\\u2019s| is) important to note(?:\\\\s+that)?\\\\s*,?\\\\s*", "replacement": "", "flags": "gi", "note": "Delete filler"},
+    {"pattern": "in conclusion\\\\s*,?\\\\s*", "replacement": "", "flags": "gi", "note": "Delete"},
+    {"pattern": "furthermore\\\\s*,?\\\\s*", "replacement": "", "flags": "gi", "note": "Delete connector"},
+    {"pattern": "\\\\bdiving\\\\s+into?\\\\b", "replacement": "examining", "flags": "gi"},
+    {"pattern": "\\\\bdives?\\\\s+into?\\\\b", "replacement": "explores", "flags": "gi"},
+    {"pattern": "\\\\bdive\\\\s+in\\\\b", "replacement": "look more closely", "flags": "gi"},
+    {"pattern": "\\\\bdelving\\\\b", "replacement": "examining", "flags": "gi"},
+    {"pattern": "\\\\bdelves\\\\b", "replacement": "examines", "flags": "gi"},
+    {"pattern": "\\\\bdelved\\\\b", "replacement": "examined", "flags": "gi"},
+    {"pattern": "\\\\bdelve\\\\b", "replacement": "examine", "flags": "gi"},
+    {"pattern": "\\\\brealms\\\\b", "replacement": "domains", "flags": "gi"},
+    {"pattern": "\\\\brealm\\\\b", "replacement": "domain", "flags": "gi"},
+    {"pattern": "\\\\bunlocking\\\\b", "replacement": "revealing", "flags": "gi"},
+    {"pattern": "\\\\bunlocked\\\\b", "replacement": "revealed", "flags": "gi"},
+    {"pattern": "\\\\bunlocks\\\\b", "replacement": "reveals", "flags": "gi"},
+    {"pattern": "\\\\bunlock\\\\b", "replacement": "reveal", "flags": "gi"},
+    {"pattern": "\\\\bgame[\\\\s-]?changers\\\\b", "replacement": "turning points", "flags": "gi"},
+    {"pattern": "\\\\bgame[\\\\s-]?changer\\\\b", "replacement": "turning point", "flags": "gi"},
+    {"pattern": "\\\\bsacred duties\\\\b", "replacement": "religious obligations", "flags": "gi"},
+    {"pattern": "\\\\bsacred duty\\\\b", "replacement": "religious obligation", "flags": "gi"},
+    {"pattern": "\\\\bspiritual awakenings\\\\b", "replacement": "spiritual experiences", "flags": "gi"},
+    {"pattern": "\\\\bspiritual awakening\\\\b", "replacement": "spiritual experience", "flags": "gi"}
+  ],
+  "post_processing": {
+    "fix_orphaned_caps": true,
+    "collapse_double_spaces": true
+  }
+}
